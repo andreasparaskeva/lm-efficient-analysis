@@ -147,10 +147,6 @@ def plot_metric(
 
     plt.close(fig)
 
-
-
-
-
 if __name__ == "__main__":
     # Define paths
     data_dir = "./results/data/"
