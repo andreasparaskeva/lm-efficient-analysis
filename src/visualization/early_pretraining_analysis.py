@@ -88,36 +88,64 @@ def plot_metric(
     save_path: Optional[str] = None
 ):
     """
-    Plots a single metric (Spearman or R2) globally, with improved styling,
-    and saves it as both PNG and PDF.
+    Plots metric with:
+    - Slightly expanded spacing for anchors <= 250
+    - Fully linear spacing after 250
+    - Clean tick alignment
     """
-    plt.figure(figsize=(10, 6))
-    plt.plot(df.index, df['global'], marker='o', linestyle='-', color='blue')
-    
-    # Axis labels with bold font and increased size
-    plt.xlabel("Anchor (in million tokens)", fontsize=14, fontweight='bold')
-    plt.ylabel(ylabel, fontsize=14, fontweight='bold')
-    
-    # Tick labels with increased size
-    plt.tick_params(axis='both', which='major', labelsize=12)
-    
-    plt.grid(True, linestyle='--', alpha=0.6)
-    plt.xticks(df.index, rotation=45) # Rotate for better readability if crowded
-    plt.ylim(-0.1, 1.1)
-    
-    # Adjust layout to prevent labels from being cut off
-    plt.tight_layout()
+
+    df = df.copy()
+    df.index = pd.to_numeric(df.index)
+    df = df.sort_index()
+
+    # ---- PIECEWISE TRANSFORM ----
+    stretch_factor = 2.0      # increase early spacing (adjust 1.5–3.0 to taste)
+    cutoff = 150
+
+    def transform(x):
+        if x <= cutoff:
+            return x * stretch_factor
+        else:
+            # keep continuity at cutoff
+            return cutoff * stretch_factor + (x - cutoff)
+
+    transformed_x = df.index.map(transform)
+
+    fig, ax = plt.subplots(figsize=(16, 8))
+
+    ax.plot(transformed_x, df["global"], marker="o", linestyle="-", color="blue", linewidth=3)
+
+    # Axis labels
+    ax.set_xlabel("Anchor (in million tokens)", fontsize=16, fontweight="bold")
+    ax.set_ylabel(ylabel, fontsize=16, fontweight="bold")
+
+    ax.tick_params(axis="both", which="major", labelsize=16)
+    ax.tick_params(axis="x", rotation=45)
+
+    # Use transformed positions for ticks
+    ax.set_xticks(transformed_x)
+    ax.set_xticklabels(df.index.astype(int))
+
+    # Y limits
+    ax.set_ylim(-0.1, 1.05)
+
+    # Axis limits with slight padding
+    max_x = transformed_x.max()
+    ax.set_xlim(-0.02 * max_x, max_x * 1.05)
+
+    ax.grid(True, linestyle="--", alpha=0.5)
+
+    for spine in ax.spines.values():
+        spine.set_linewidth(1.2)
+
+    fig.tight_layout()
 
     if save_path:
-        # Save as PNG
-        plt.savefig(save_path, dpi=300)
-        
-        # Save as PDF
+        fig.savefig(save_path, dpi=300, bbox_inches="tight")
         pdf_path = os.path.splitext(save_path)[0] + ".pdf"
-        plt.savefig(pdf_path)
+        fig.savefig(pdf_path, bbox_inches="tight")
 
-    plt.close() # Close plot to free memory
-
+    plt.close(fig)
 
 
 
