@@ -1,4 +1,4 @@
-# Data Efficient Analysis
+# Efficiency in Language Model Pre-training: Learning Curves Across Datasets and Model Sizes
 Code for the paper on data-efficient language model pre-training. We train small LLaMA-style decoder-only models (up to 180M parameters) on curated datasets, study learning curves at token-based anchors, and evaluate linguistic competence and downstream performance.
 
 Released models for this project are available in the Hugging Face collection:
