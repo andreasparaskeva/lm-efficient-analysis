@@ -1,0 +1,7 @@
+model:
+  hidden_size: 512
+  intermediate_size: 1024
+  n_head: 8
+  n_layer: 16
+  name: Llama-60M
+  type: Llama

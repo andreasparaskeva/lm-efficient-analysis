@@ -1,0 +1,4 @@
+model_config,dataset,epochs,batch_size,grad_accum,seq_length,anchors,tokenizer_vocab_size
+20m,babylm3,50,64,1,256,"[-1]",16000
+60m,tinystories,50,64,1,256,"[-1]",16000
+180m,hybrid_3.7B,50,64,1,256,"[-1]",50257

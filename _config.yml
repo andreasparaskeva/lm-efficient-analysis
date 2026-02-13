@@ -1,0 +1,10 @@
+title: Efficiency in Language Model Pre-training
+description: Learning Curves Across Datasets and Model Sizes
+theme: minima
+header_pages:
+  - index.md
+exclude:
+  - src
+markdown: kramdown
+kramdown:
+  input: GFM
