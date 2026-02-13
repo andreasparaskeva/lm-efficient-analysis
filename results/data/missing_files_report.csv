@@ -1,0 +1,11 @@
+dataset,model_size,milestone,vocab_size,seed,error
+tinystories,180m,1000,16000,2,Folder for path 'results/blimp/tinystories/180m/seed-2/tok-16000/1000' not found.
+babylm3,180m,100,16000,0,Folder for path 'results/blimp/babylm3/180m/seed-0/tok-16000/100' not found.
+hybrid_3.7B,180m,75,50257,0,Folder for path 'results/blimp/hybrid_3.7B/180m/seed-0/tok-50257/75' not found.
+hybrid_3.7B,180m,75,50257,1,Folder for path 'results/blimp/hybrid_3.7B/180m/seed-1/tok-50257/75' not found.
+hybrid_3.7B,180m,250,50257,1,Folder for path 'results/blimp/hybrid_3.7B/180m/seed-1/tok-50257/250' not found.
+hybrid_3.7B,180m,250,50257,2,Folder for path 'results/blimp/hybrid_3.7B/180m/seed-2/tok-50257/250' not found.
+hybrid_3.7B,180m,1000,50257,2,Folder for path 'results/blimp/hybrid_3.7B/180m/seed-2/tok-50257/1000' not found.
+hybrid_3.7B,180m,1750,50257,0,Folder for path 'results/blimp/hybrid_3.7B/180m/seed-0/tok-50257/1750' not found.
+hybrid_3.7B,180m,final,50257,1,Folder for path 'results/blimp/hybrid_3.7B/180m/seed-1/tok-50257/final' not found.
+hybrid_3.7B,180m,final,50257,2,Folder for path 'results/blimp/hybrid_3.7B/180m/seed-2/tok-50257/final' not found.

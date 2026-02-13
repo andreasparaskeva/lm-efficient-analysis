@@ -1,0 +1,7 @@
+model:
+  hidden_size: 768
+  intermediate_size: 1792
+  n_head: 12
+  n_layer: 24
+  name: Llama-180M
+  type: Llama

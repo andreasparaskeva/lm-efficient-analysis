@@ -1,0 +1,2 @@
+model_config,dataset,epochs,batch_size,grad_accum,seq_length,anchors,tokenizer_vocab_size
+20m,tinystories,50,64,1,256,"[-1]",16000

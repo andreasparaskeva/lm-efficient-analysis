@@ -1,0 +1,36 @@
+# Core ML/DL frameworks
+torch==2.7.0
+transformers==4.51.3
+accelerate==1.7.0
+tokenizers==0.21.1
+safetensors==0.5.3
+ray==2.53.0
+seaborn==0.13.2
+
+# Data processing
+datasets==3.6.0
+numpy==2.2.5
+pandas==2.2.3
+scikit-learn==1.6.1
+matplotlib==3.10.3
+seaborn==0.13.2
+
+# Hyperparameter optimization
+optuna==4.5.0
+deephyper==0.10.0
+
+# Hugging Face integration
+huggingface-hub==0.34.4
+
+# Experiment tracking
+wandb==0.19.11
+
+# Utilities
+python-dotenv==1.1.1
+filelock==3.18.0
+tqdm==4.67.1
+pyyaml==6.0.2
+packaging==25.0
+
+# NLP utilities (if needed)
+nltk==3.9.1
